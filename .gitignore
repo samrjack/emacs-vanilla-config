@@ -1,0 +1,10 @@
+*
+!.gitignore
+!early-init.el
+!init.el
+!custom.el
+!todo.org
+!bootstrap/
+!packages/
+
+!*.el

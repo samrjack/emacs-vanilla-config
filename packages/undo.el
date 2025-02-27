@@ -1,0 +1,19 @@
+;; Undo
+(use-package undo-tree
+	:ensure t
+	:init
+		(setq undo-tree-visualizer-timestamps t
+			  undo-tree-visualizer-diff t
+			  undo-limit 800000
+			  undo-strong-limit 12000000
+			  undo-outer-limit 120000000)
+	:config
+		(global-undo-tree-mode 1)
+		(setq undo-dir (expand-file-name "undo" local-dir))
+		(make-directory undo-dir t)
+		(setq undo-tree-history-directory-alist (list (cons "."  undo-dir))))
+
+(use-package evil
+	:ensure nil
+	:after (evil undo-tree leader-keymapping)
+	:config (define-key leader-keymap (kbd "u") (cons "undo tree" #'undo-tree-visualize)))
