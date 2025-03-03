@@ -15,9 +15,19 @@
 - [ ] Elpaca ajacent packages
 - [ ] Set up local mode map leader
 - [ ] Figure out eglot mode
+- [ ] corefu
+- [ ] rainbow-mode for highlighting colors
+- [ ] Tramp
+- [ ] Terminal emulation (eterm and vterm)
+- [ ] Write good mode
+- [ ] Coding keymaps (including lsp actions)
 
 * Fixes [0/1]
 - [ ] Fix evil leader key being overwritten by evil collection
 - [ ] Highlight search results even after search is complete
 - [ ] Treat ~helpful~'s buffers as special buffers so they stop opening over my own work
 - [ ] Find way to make key mappings only avaliable when minor mode is active but not visable when minor mode is turned off
+
+* References
+- https://github.com/progfolio/.emacs.d/blob/master/init.org
+- 
