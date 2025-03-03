@@ -1,6 +1,8 @@
 (use-package helpful
 	:ensure t
-	:init
+	;; prevent native-compiler errors
+	:functions shortdoc-function-groups
+	:config
 		(define-key help-map (kbd ".") (cons "describe function" #'helpful-at-point))
 		(define-key help-map (kbd "f") (cons "describe function" #'helpful-callable))
 		(define-key help-map (kbd "v") (cons "describe function" #'helpful-variable))
