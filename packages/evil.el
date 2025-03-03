@@ -46,8 +46,6 @@
 (use-package evil-commentary
 	:ensure t
 	:after evil
-	;; Declare these so the native compiler is happy
-	:functions (org-toggle-comment org-at-heading-p)
 	:hook (prog-mode . evil-commentary-mode)
 	:config
 		(evil-define-key 'normal evil-commentary-mode-map (kbd "g C") #'evil-commentary-line))
