@@ -1,6 +1,6 @@
 (use-package which-key
 	:ensure t
-	:hook (after-init . which-key-mode)
+	:hook (after-config . which-key-mode)
 	:custom
 		(which-key-allow-evil-operators t)
 		(which-key-show-operator-state-maps t)

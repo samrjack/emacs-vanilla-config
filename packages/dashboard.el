@@ -6,8 +6,8 @@
 		(dashboard-show-shortcuts t)
 		(dashboard-startup-banner 'logo)
 	:config
-		(add-hook 'elpaca-after-init-hook #'dashboard-insert-startupify-lists)
-		(add-hook 'elpaca-after-init-hook #'dashboard-initialize)
+		(add-hook 'after-config-hook #'dashboard-insert-startupify-lists)
+		(add-hook 'after-config-hook #'dashboard-initialize)
 		(dashboard-setup-startup-hook))
 
 (use-package dashboard

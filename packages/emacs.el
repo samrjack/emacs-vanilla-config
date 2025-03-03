@@ -15,7 +15,7 @@
 ;; emacs documentation.
 (use-package page-break-lines
 	:ensure t
-	:hook (after-init . global-page-break-lines-mode))
+	:hook (after-config . global-page-break-lines-mode))
 
 ;; Disable all blocked commands. Allow for advanced emacs usage.
 (use-package gnus

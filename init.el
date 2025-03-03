@@ -10,6 +10,8 @@
        '((top . 10) (left . 10) (width . 200) (height . 200)))
 
 
+;; Setup hook for running configurations
+(setq after-config-hook nil)
 
 ;;; Set up file loacations
 (setq local-dir (expand-file-name ".local" config-directory))

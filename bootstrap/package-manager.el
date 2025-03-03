@@ -39,6 +39,9 @@
 (add-hook 'after-init-hook #'elpaca-process-queues)
 (elpaca `(,@elpaca-order))
 
+;; Run all configuration hooks after loading
+(add-hook 'elpaca-after-init-hook (lambda () (run-hooks 'after-config-hook)))
+
 ;; Add elpaca support to use-package
 (elpaca elpaca-use-package
   ;; Enable use-package :ensure support for Elpaca.

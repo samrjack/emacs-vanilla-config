@@ -5,7 +5,7 @@
 	:ensure t
 	:defer t
 	:hook
-		(after-init . evil-mode)
+		(after-config . evil-mode)
 	:custom
 		(evil-want-keybinding nil)
 		(evil-want-integration t)
@@ -80,4 +80,4 @@
 (use-package evil-anzu
 	:ensure t
 	:after evil
-	:hook (after-init . global-anzu-mode))
+	:hook (after-config . global-anzu-mode))
