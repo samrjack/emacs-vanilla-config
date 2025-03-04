@@ -1,7 +1,15 @@
 (use-package magit
 	:ensure t
 	:defer t)
-
+; Allow working with github features from magit
+(use-package forge
+	:ensure t
+	:after magit)
+; Allow working with code reviews through forge plugin in magit
+(use-package code-review
+	:ensure t
+	:after forge)
+; Dependence for magit to work properly. Magit needs the most recent version to function.
 (use-package transient
 	:ensure t
 	:defer t)
