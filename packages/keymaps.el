@@ -15,9 +15,9 @@
 
 				(define-key which-key-map (kbd "f") (cons "full maps"
 					(let ((full-maps (make-sparse-keymap)))
-						(define-key which-key-map (kbd "") (cons "" #'which-key-show-full-keymap))
-						(define-key which-key-map (kbd "") (cons "" #'which-key-show-full-major-mode))
-						(define-key which-key-map (kbd "") (cons "" #'which-key-show-full-minor-mode-keymap))
+						(define-key which-key-map (kbd "k") (cons "select keymap" #'which-key-show-full-keymap))
+						(define-key which-key-map (kbd "m") (cons "major mode" #'which-key-show-full-major-mode))
+						(define-key which-key-map (kbd "M") (cons "minor mode" #'which-key-show-full-minor-mode-keymap))
 						full-maps)))
 				which-key-map))))
 
