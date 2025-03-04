@@ -81,3 +81,8 @@
 	:ensure t
 	:after evil
 	:hook (after-config . global-anzu-mode))
+(use-package evil
+	:ensure nil
+	:after (evil toggle-leader-keymapping)
+	:config
+	(define-key toggle-leader-keymap (kbd "a") (cons "anzu" #'global-anzu-mode)))
