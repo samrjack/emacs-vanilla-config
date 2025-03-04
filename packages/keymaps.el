@@ -26,22 +26,45 @@
 	:after (which-key leader-keymapping)
 	:config
 		(define-key leader-keymap (kbd "?") (cons "Top level keymap" #'which-key-show-top-level)))
-;; TODO add a keybinding for viewing which-key at the top level
 
+; Set up a leader key to show a nice menu
 (use-package emacs
 	:after evil
-	:init
 	:config
-		; Set the leader keys
-		(evil-set-leader 'normal (kbd "SPC"))
-		(evil-set-leader 'visual (kbd "SPC"))
-
 		; Then set up the leader map
+		(setq leader-key (kbd "SPC"))
 		(setq leader-keymap (make-sparse-keymap))
 
-		(evil-define-key '(normal visual insert replace operator motion emacs) 'global (kbd "<leader>") (cons "leader" leader-keymap))
-		(provide 'leader-keymapping)
+		(evil-define-key
+			'(normal visual)
+			'global
+			leader-key
+			(cons "leader" leader-keymap))
+		(provide 'leader-keymapping))
 
+; Prevent overriding the leader key
+(use-package emacs
+	:after leader-keymapping
+	:config
+		; Prevent leader from being overwritten
+		(define-minor-mode high-priority-mode
+			"Global minor mode for higher precedence evil keybindings."
+			:global t
+			:keymap (make-sparse-keymap))
+
+		(high-priority-mode)
+
+		(dolist (state '(normal visual insert emacs))
+			(evil-make-intercept-map
+			 (evil-get-auxiliary-keymap high-priority-mode-map state t t)
+			 state))
+
+		(evil-define-key ('normal 'visual) my-intercept-mode-map leader-key (cons "leader" leader-keymap)))
+
+; Set up basic keymappings to use in the leader menu
+(use-package emacs
+	:after leader-keymapping
+	:config
 		; Add existing keymaps to leader
 		(define-key leader-keymap (kbd "h") (cons "help" help-map))
 		(define-key leader-keymap (kbd "w") (cons "window" evil-window-map))
@@ -56,6 +79,4 @@
 		(define-key leader-keymap (kbd "f") (cons "find" find-leader-keymap))
 		(provide 'find-leader-keymapping)
 
-		(define-key find-leader-keymap (kbd "f") (cons "find file" #'find-file))
-
-	)
+		(define-key find-leader-keymap (kbd "f") (cons "find file" #'find-file)))
