@@ -3,9 +3,9 @@
 	(interactive)
 	(switch-to-buffer (get-buffer-create "*scratch*")))
 
-(use-package evil
+(use-package emacs
 	:ensure nil
-	:after (evil leader-keymapping)
+	:after (leader-keymapping)
 	:config
 		(define-key leader-keymap (kbd "x") (cons "scratch" #'open-scratch-buffer)))
 

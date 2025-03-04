@@ -13,7 +13,7 @@
 		(make-directory undo-dir t)
 		(setq undo-tree-history-directory-alist (list (cons "."  undo-dir))))
 
-(use-package evil
+(use-package emacs
 	:ensure nil
-	:after (evil undo-tree leader-keymapping)
+	:after (undo-tree leader-keymapping)
 	:config (define-key leader-keymap (kbd "u") (cons "undo tree" #'undo-tree-visualize)))

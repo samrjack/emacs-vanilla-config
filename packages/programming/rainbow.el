@@ -1,7 +1,7 @@
 (use-package rainbow-delimiters
 	:ensure t
 	:hook (prog-mode . rainbow-delimiters-mode))
-(use-package evil
+(use-package emacs
 	:ensure nil
 	:after (evil toggle-leader-keymapping)
 	:config

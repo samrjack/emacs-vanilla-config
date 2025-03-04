@@ -35,7 +35,7 @@
 (use-package evil-easymotion
 	:ensure t
 	:after evil)
-(use-package evil-easymotion
+(use-package emacs
 	:ensure nil
 	:after (evil-easymotion leader-keymapping)
 	:config
@@ -81,7 +81,7 @@
 	:ensure t
 	:after evil
 	:hook (after-config . global-anzu-mode))
-(use-package evil
+(use-package emacs
 	:ensure nil
 	:after (evil toggle-leader-keymapping)
 	:config

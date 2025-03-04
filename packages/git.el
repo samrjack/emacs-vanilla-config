@@ -6,7 +6,7 @@
 	:ensure t
 	:defer t)
 
-(use-package evil
+(use-package emacs
 	:ensure nil
 	:after (evil leader-keymapping)
 	:init

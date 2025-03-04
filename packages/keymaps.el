@@ -21,14 +21,14 @@
 						full-maps)))
 				which-key-map))))
 
-(use-package which-key
+(use-package emacs
 	:ensure nil
 	:after (which-key leader-keymapping)
 	:config
 		(define-key leader-keymap (kbd "?") (cons "Top level keymap" #'which-key-show-top-level)))
 ;; TODO add a keybinding for viewing which-key at the top level
 
-(use-package evil
+(use-package emacs
 	:after evil
 	:init
 	:config
