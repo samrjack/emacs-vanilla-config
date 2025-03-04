@@ -9,7 +9,7 @@
 
 ;; Temporary
 (setq default-frame-alist
-       '((top . 10) (left . 10) (width . 200) (height . 200)))
+       '((top . 0) (left . 0) (width . 220) (height . 200)))
 
 
 ;; Setup hook for running configurations
