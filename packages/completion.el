@@ -1,20 +1,20 @@
 ;; Completion engine
 
 ; with some tweaks, pulled from https://github.com/minad/vertico?tab=readme-ov-file#configuration
+;; minibuffer completion
 (use-package vertico
 	:ensure t
-	:demand t
+	:hook (after-config . vertico-mode)
 	:custom
 		(vertico-count 20) ;; Show more candidates
 		(vertico-resize t) ;; Grow and shrink the Vertico minibuffer
 		(vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
-	:config
-		(vertico-mode 1))
+	)
 
 ;; Optionally use the `orderless' completion style.
 (use-package orderless
 	:ensure t
-	:demand t
+	:after (:or vertico corefu)
 	:custom
 		;; Configure a custom style dispatcher (see the Consult wiki)
 		;; (orderless-style-dispatchers '(+orderless-consult-dispatch orderless-affix-dispatch))
@@ -25,15 +25,14 @@
 
 (use-package marginalia
 	:ensure t
-	:demand t
+	:hook (after-config . marginalia-mode)
 	;; Bind `marginalia-cycle' locally in the minibuffer.  To make the binding
 	;; available in the *Completions* buffer, add it to the
 	;; `completion-list-mode-map'.
-	;:bind (:map minibuffer-local-map
-	;       ("M-A" . marginalia-cycle))
-
 	:config
+		(define-key minibuffer-local-map (kbd "M-a") (cons "marginalia cycle" #'marginalia-cycle))
 		(marginalia-mode 1))
+
 
 (use-package emacs
 	:ensure nil
@@ -49,3 +48,52 @@
 		;; Do not allow the cursor in the minibuffer prompt
 		(minibuffer-prompt-properties
 		'(read-only t cursor-intangible t face minibuffer-prompt)))
+
+;; In buffer completion
+(use-package corfu
+	:ensure t
+	:hook
+		(after-config . global-corfu-mode)
+		(global-corfu-mode . corfu-popupinfo-mode)
+	:custom
+		(corfu-auto t)
+		(corfu-quit-no-match 'separator)
+		(global-corfu-minibuffer nil)
+		(corfu-popupinfo-delay 1.0))
+;; ;; Use Dabbrev with Corfu! Dabbrev is emacs' built in completion API
+(use-package dabbrev
+	;; Swap M-/ and C-M-/
+	:bind (
+		("M-/" . dabbrev-completion)
+		("C-M-/" . dabbrev-expand))
+	:config
+	;; Since 29.1, use `dabbrev-ignored-buffer-regexps' on older.
+	(add-to-list 'dabbrev-ignored-buffer-regexps "\\` ")
+	(add-to-list 'dabbrev-ignored-buffer-modes 'doc-view-mode)
+	(add-to-list 'dabbrev-ignored-buffer-modes 'pdf-view-mode)
+	(add-to-list 'dabbrev-ignored-buffer-modes 'tags-table-mode))
+
+(use-package cape
+	:ensure t
+	;; Bind prefix keymap providing all Cape commands under a mnemonic key.
+	;; Press C-c p ? to for help.
+	:bind ("C-c p" . cape-prefix-map) ;; Alternative key: M-<tab>, M-p, M-+
+		;; Alternatively bind Cape commands individually.
+		;; :bind (("C-c p d" . cape-dabbrev)
+		;;        ("C-c p h" . cape-history)
+		;;        ("C-c p f" . cape-file)
+		;;        ...)
+	:init
+		;; Add to the global default value of `completion-at-point-functions' which is
+		;; used by `completion-at-point'.  The order of the functions matters, the
+		;; first function returning a result wins.  Note that the list of buffer-local
+		;; completion functions takes precedence over the global list.
+		(add-hook 'completion-at-point-functions #'cape-dabbrev)
+		(add-hook 'completion-at-point-functions #'cape-file)
+		(add-hook 'completion-at-point-functions #'cape-elisp-block)
+		(add-hook 'completion-at-point-functions #'cape-emoji)
+		(add-hook 'completion-at-point-functions #'cape-keyword)
+		;; (add-hook 'completion-at-point-functions #'cape-history)
+		;; ...
+)
+

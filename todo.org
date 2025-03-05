@@ -2,7 +2,7 @@
 #+description: A document to track things to be done/added to my emacs config.
 #+author: Samuel Jackson
 
-* Additions [0/10]
+* Additions [1/18]
 - [ ] Configure org mode
 - [ ] Projectile
 - [ ] Tab bar mode
@@ -15,12 +15,14 @@
 - [ ] Elpaca ajacent packages
 - [ ] Set up local mode map leader
 - [ ] Figure out eglot mode
-- [ ] corefu
+- [X] corefu
 - [ ] rainbow-mode for highlighting colors
 - [ ] Tramp
 - [ ] Terminal emulation (eterm and vterm)
 - [ ] Write good mode
 - [ ] Coding keymaps (including lsp actions)
+- [ ] Remember notes mode (blog post https://baty.net/posts/2025/03/i-went-a-little-nuts-with-remember-mode-in-emacs/)
+- [ ] mode line
 
 * Fixes [1/4]
 - [X] Fix evil leader key being overwritten by evil collection

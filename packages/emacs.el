@@ -5,6 +5,9 @@
 		(tab-width 4) ;; Default tab width
 		(pixel-scoll-precision-mode t) ;; Enable pixel-precise scrolling
 		(history-length 100) ;; command history length
+		(tab-always-indent 'complete) ;; Allow tab to complete and not just indent
+		;; Hide commands in M-x which do not apply to the current mode.
+		;; (read-extended-command-predicate #'command-completion-default-include-p)
 	:init
 		(tool-bar-mode -1)
 		(menu-bar-mode -1)
