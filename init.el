@@ -5,7 +5,7 @@
 
 (setq read-process-output-max (* 1024 1024 4))
 
-(setq warning-minimum-level :error) ; Don't let warnings from native comp pop up
+(setq native-comp-async-report-warnings-errors 'silent) ; Don't let warnings from native comp pop up
 
 ;; Temporary
 (setq default-frame-alist
