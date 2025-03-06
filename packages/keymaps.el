@@ -61,7 +61,7 @@
 			 (evil-get-auxiliary-keymap high-priority-mode-map state t t)
 			 state))
 
-		(evil-define-key ('normal 'visual) my-intercept-mode-map leader-key (cons "leader" leader-keymap)))
+		(evil-define-key '(normal visual) high-priority-mode-map leader-key (cons "leader" leader-keymap)))
 
 ; Set up basic keymappings to use in the leader menu
 (use-package emacs
