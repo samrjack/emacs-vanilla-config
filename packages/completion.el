@@ -58,6 +58,7 @@
 	:custom
 		(corfu-auto t)
 		(corfu-quit-no-match 'separator)
+		(corfu-preselect 'prompt)
 		(global-corfu-minibuffer nil)
 		(corfu-popupinfo-delay 1.0))
 ;; ;; Use Dabbrev with Corfu! Dabbrev is emacs' built in completion API
