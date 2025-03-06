@@ -29,6 +29,7 @@
 
 ; Set up a leader key to show a nice menu
 (use-package emacs
+	:ensure nil
 	:after evil
 	:config
 		; Then set up the leader map
@@ -44,6 +45,7 @@
 
 ; Prevent overriding the leader key
 (use-package emacs
+	:ensure nil
 	:after leader-keymapping
 	:config
 		; Prevent leader from being overwritten
@@ -63,6 +65,7 @@
 
 ; Set up basic keymappings to use in the leader menu
 (use-package emacs
+	:ensure nil
 	:after leader-keymapping
 	:config
 		; Add existing keymaps to leader
@@ -80,3 +83,19 @@
 		(provide 'find-leader-keymapping)
 
 		(define-key find-leader-keymap (kbd "f") (cons "find file" #'find-file)))
+
+;; Set up insert mode keybindings
+(use-package emacs
+	:ensure nil
+	:after evil
+	:config
+	(evil-define-key
+		'insert
+		'global
+		(kbd "C-a") nil ; Global go to beginning of line
+		(kbd "C-e") nil ; Global go to end of line
+		(kbd "C-d") nil ; Global delete forward
+		(kbd "C-k") nil ; Global kill line
+		(kbd "C-q") nil ; Global quote key (can remap to something else later)
+		(kbd "M-t") #'evil-shift-left-line ; mirror C-t
+	))
