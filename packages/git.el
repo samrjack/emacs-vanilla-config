@@ -22,3 +22,9 @@
 	:config
 		(define-key git-leader-keymap "g" (cons "magit" #'magit-status))
 		(define-key leader-keymap "g" (cons "git" git-leader-keymap)))
+
+(use-package emacs
+	:ensure nil
+	:after (evil magit)
+	:config
+	(evil-define-key 'normal magit-mode-map (kbd ".") (cons "show commit" #'magit-diff-show-or-scroll-up)))
