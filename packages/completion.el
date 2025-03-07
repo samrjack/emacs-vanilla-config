@@ -33,7 +33,6 @@
 		(define-key minibuffer-local-map (kbd "M-a") (cons "marginalia cycle" #'marginalia-cycle))
 		(marginalia-mode 1))
 
-
 (use-package emacs
 	:ensure nil
 	:custom
@@ -60,8 +59,20 @@
 		(corfu-quit-no-match 'separator)
 		(corfu-preselect 'prompt)
 		(global-corfu-minibuffer nil)
-		(corfu-popupinfo-delay 1.0))
-;; ;; Use Dabbrev with Corfu! Dabbrev is emacs' built in completion API
+		(corfu-popupinfo-delay 1.0)
+	:config
+		(defun corfu-insert-with-passthrough ()
+			"Insert current candidate.
+Quit and pass the return through if no candidate is selected."
+			(interactive)
+			(if (>= corfu--index 0)
+					(corfu--insert 'finished)
+				(corfu-quit)
+				;; todo find way to pass the ret key onwards
+				(setq unread-command-events (listify-key-sequence (this-command-keys)))))
+		(define-key corfu-map (kbd "RET") (cons "insert" #'corfu-insert-with-passthrough)))
+
+;; Use Dabbrev with Corfu! Dabbrev is emacs' built in completion API
 (use-package dabbrev
 	;; Swap M-/ and C-M-/
 	:bind (

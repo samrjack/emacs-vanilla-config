@@ -11,7 +11,6 @@
 (setq default-frame-alist
        '((top . 0) (left . 0) (width . 220) (height . 200)))
 
-
 ;; Setup hook for running configurations
 (setq after-config-hook nil)
 
