@@ -26,5 +26,6 @@
 (use-package emacs
 	:ensure nil
 	:after (evil magit)
+	:hook (git-commit-mode . evil-insert-state) ; Start commits in insert mode
 	:config
-	(evil-define-key 'normal magit-mode-map (kbd ".") (cons "show commit" #'magit-diff-show-or-scroll-up)))
+		(evil-define-key 'normal magit-mode-map (kbd ".") (cons "show commit" #'magit-diff-show-or-scroll-up)))
