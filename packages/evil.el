@@ -1,4 +1,4 @@
-;; Guide for evil settings https://github.com/noctuid/evil-guide?tab=readme-ov-file#preventing-certain-keys-from-being-overridden
+;; Guide for evil settings https://github.com/noctuid/evil-guide
 
 ;; Emulate vim
 (use-package evil
@@ -6,13 +6,18 @@
 	:defer t
 	:hook
 		(after-config . evil-mode)
+	:init
+		(setq evil-search-module 'evil-search)
 	:custom
+		(evil-search-module 'evil-search)
 		(evil-want-keybinding nil)
 		(evil-want-integration t)
 		(evil-want-C-u-scroll t)
 		(evil-want-C-u-delete t)
 		(evil-undo-system 'undo-tree)
-		(evil-want-fine-undo t))
+		(evil-want-fine-undo t)
+	:config
+		(evil-define-key '(normal visual) 'global (kbd "TAB") (cons "toggle fold" #'evil-toggle-fold)))
 
 ;; Other evil settings
 (use-package evil-vars
@@ -85,4 +90,13 @@
 	:ensure nil
 	:after (evil toggle-leader-keymapping)
 	:config
-	(define-key toggle-leader-keymap (kbd "a") (cons "anzu" #'global-anzu-mode)))
+		(define-key toggle-leader-keymap (kbd "a") (cons "anzu" #'global-anzu-mode)))
+
+
+;; Folding
+(use-package hideshow
+	:ensure nil
+	:after toggle-leader-keymapping
+	:config
+		(define-key toggle-leader-keymap (kbd "f h") (cons "hide show" #'hs-minor-mode)))
+
