@@ -7,7 +7,7 @@
 - [ ] Projectile
 - [ ] Tab bar mode
 - [ ] Sessions
-- [ ] Buffer management
+- [X] Buffer management
 - [ ] Spelling setup
   - [ ] Dictionary
   - [ ] Thesaurus
