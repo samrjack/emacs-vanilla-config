@@ -1,8 +1,8 @@
 #+title: Emacs Config TODO List
-#+description: A document to track things to be done/added to my emacs config.
+#+description: A document to track things to be done/added to my Emacs Config.
 #+author: Samuel Jackson
 
-* Additions [3/18]
+* Additions [4/18]
 - [ ] Configure org mode
 - [ ] Projectile
 - [ ] Tab bar mode
@@ -12,13 +12,13 @@
   - [ ] Dictionary
   - [ ] Thesaurus
 - [X] Code folding
-- [ ] Elpaca ajacent packages
+- [ ] Elpaca adjacent packages
 - [ ] Set up local mode map leader
 - [ ] Figure out eglot mode
 - [X] corefu
 - [ ] rainbow-mode for highlighting colors
 - [ ] Tramp
-- [ ] Terminal emulation (eterm and vterm)
+- [X] Terminal emulation (eterm and vterm)
 - [ ] Write good mode
 - [ ] Coding keymaps (including lsp actions)
 - [ ] Remember notes mode (blog post https://baty.net/posts/2025/03/i-went-a-little-nuts-with-remember-mode-in-emacs/)
@@ -27,7 +27,7 @@
 * Fixes [4/6]
 - [X] Fix evil leader key being overwritten by evil collection
 - [X] Highlight search results even after search is complete
-- [ ] Treat ~helpful~'s buffers as special buffers so they stop opening over my own work
+- [ ] Treat ~helpful~'s bufffers as special buffers so they stop opening over my own work
 - [ ] Find way to make key mappings only avaliable when minor mode is active but not visable when minor mode is turned off
 - [X] Corfu should show auto completion but should not auto select the completion candidates or eat up my RET input
 - [X] Magit new commit should start in insert mode but amend should start in normal mode

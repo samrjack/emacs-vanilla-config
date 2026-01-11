@@ -1,6 +1,8 @@
 ;; Undo
 (use-package undo-tree
 	:ensure t
+	:hook ((after-config . global-undo-tree-mode)
+		   (evil-local-mode . turn-on-undo-tree-mode))
 	:init
 		(setq undo-tree-visualizer-timestamps t
 			  undo-tree-visualizer-diff t
