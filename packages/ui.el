@@ -1,3 +1,5 @@
+;;; ui.el --- UI enhancements -*- lexical-binding: t; -*-
+
 (use-package golden-ratio
 	:ensure (:host github :repo "roman/golden-ratio.el")
 	:defer t)

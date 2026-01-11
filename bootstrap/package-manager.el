@@ -1,3 +1,4 @@
+;;; package-manager.el --- Elpaca setup -*- lexical-binding: t; -*-
 
 ;; Elpaca - init script directy from github repo: https://github.com/progfolio/elpaca
 (defvar elpaca-installer-version 0.10)

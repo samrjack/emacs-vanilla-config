@@ -1,3 +1,5 @@
+;;; themes.el --- Color themes -*- lexical-binding: t; -*-
+
 ;; Color schemes
 (use-package dracula-theme
 	:ensure t

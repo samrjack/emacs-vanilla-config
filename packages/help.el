@@ -1,3 +1,5 @@
+;;; help.el --- Help system enhancements -*- lexical-binding: t; -*-
+
 (use-package helpful
 	:ensure t
 	:config

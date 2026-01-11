@@ -1,3 +1,5 @@
+;;; elisp.el --- Emacs Lisp configuration -*- lexical-binding: t; -*-
+
 ;; Check this repo for more advice on using elisp in emacs
 ;; https://github.com/emacs-tw/awesome-elisp
 (use-package lisp-mode

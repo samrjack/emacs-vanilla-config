@@ -1,3 +1,5 @@
+;;; dired.el --- Dired configuration -*- lexical-binding: t; -*-
+
 (use-package dired
 	:ensure nil
 	:config

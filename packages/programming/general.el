@@ -1,3 +1,5 @@
+;;; general.el --- General programming settings -*- lexical-binding: t; -*-
+
 (use-package emacs
 	:ensure nil
 	:hook (prog-mode . display-line-numbers-mode))

@@ -1,6 +1,7 @@
-;; Completion engine
+;;; completion.el --- Completion framework -*- lexical-binding: t; -*-
 
-; with some tweaks, pulled from https://github.com/minad/vertico?tab=readme-ov-file#configuration
+;; Completion engine
+;; with some tweaks, pulled from https://github.com/minad/vertico?tab=readme-ov-file#configuration
 ;; minibuffer completion
 (use-package vertico
 	:ensure t

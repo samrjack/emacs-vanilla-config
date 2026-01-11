@@ -1,3 +1,8 @@
+;;; early-init.el --- Early initialization -*- lexical-binding: t; -*-
+
+;; Suppress warnings about missing lexical-binding in third-party packages
+(setq warning-suppress-log-types '((files)))
+
 ;; Disable package.el so elpaca can take over
 (setq package-enable-at-startup nil)
 

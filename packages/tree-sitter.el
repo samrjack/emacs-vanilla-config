@@ -1,3 +1,5 @@
+;;; tree-sitter.el --- Tree-sitter configuration -*- lexical-binding: t; -*-
+
 (use-package tree-sitter
 	:ensure t
 	:demand t

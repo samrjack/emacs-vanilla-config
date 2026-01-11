@@ -1,3 +1,5 @@
+;;; buffers.el --- Buffer management -*- lexical-binding: t; -*-
+
 (defun new-buffer ()
 	"Create a new buffer"
 	(interactive)

@@ -1,3 +1,5 @@
+;;; treemacs.el --- File tree sidebar -*- lexical-binding: t; -*-
+
 (use-package treemacs
 	:ensure t
 	:defer t

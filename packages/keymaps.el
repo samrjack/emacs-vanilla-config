@@ -1,3 +1,5 @@
+;;; keymaps.el --- Keybinding configuration -*- lexical-binding: t; -*-
+
 (use-package which-key
 	:ensure t
 	:hook (after-config . which-key-mode)

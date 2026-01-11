@@ -1,3 +1,5 @@
+;;; evil.el --- Evil mode configuration -*- lexical-binding: t; -*-
+
 ;; Guide for evil settings https://github.com/noctuid/evil-guide
 
 ;; Emulate vim

@@ -1,3 +1,5 @@
+;;; dashboard.el --- Startup dashboard -*- lexical-binding: t; -*-
+
 (use-package dashboard
 	:ensure t
 	:custom

@@ -1,4 +1,5 @@
-;; Undo
+;;; undo.el --- Undo system -*- lexical-binding: t; -*-
+
 (use-package undo-tree
 	:ensure t
 	:hook ((after-config . global-undo-tree-mode)

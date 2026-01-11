@@ -1,4 +1,4 @@
-
+;;; lsp.el --- Language Server Protocol -*- lexical-binding: t; -*-
 
 ;; LSP mode
 ;(use-package lsp-mode

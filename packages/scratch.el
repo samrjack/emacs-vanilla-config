@@ -1,3 +1,5 @@
+;;; scratch.el --- Scratch buffer utilities -*- lexical-binding: t; -*-
+
 (defun open-scratch-buffer()
 	"Open the main scratch buffer."
 	(interactive)

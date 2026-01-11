@@ -1,3 +1,5 @@
+;;; init.el --- Main initialization -*- lexical-binding: t; -*-
+
 ;; Startup
 (setq gc-cons-threshold #x40000000)
 
