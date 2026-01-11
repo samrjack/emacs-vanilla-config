@@ -2,36 +2,198 @@
 #+description: A document to track things to be done/added to my Emacs Config.
 #+author: Samuel Jackson
 
-* Additions [4/18]
-- [ ] Configure org mode
-- [ ] Projectile
-- [ ] Tab bar mode
-- [ ] Sessions
-- [X] Buffer management
-- [ ] Spelling setup
-  - [ ] Dictionary
-  - [ ] Thesaurus
-- [X] Code folding
-- [ ] Elpaca adjacent packages
-- [ ] Set up local mode map leader
-- [ ] Figure out eglot mode
-- [X] corefu
-- [ ] rainbow-mode for highlighting colors
-- [ ] Tramp
-- [X] Terminal emulation (eterm and vterm)
-- [ ] Write good mode
-- [ ] Coding keymaps (including lsp actions)
-- [ ] Remember notes mode (blog post https://baty.net/posts/2025/03/i-went-a-little-nuts-with-remember-mode-in-emacs/)
-- [ ] mode line
+* Core Features [4/10]
+** [X] Buffer management
+** [X] Code folding (hideshow)
+** [X] Corfu completion
+** [X] Terminal emulation (eterm and vterm)
+** [ ] Tab bar mode
+   - doom uses tab-bar with workspaces
+** [ ] Tramp (remote file editing)
+   - doom has this configured
+** [ ] Set up local mode map leader (localleader)
+   - doom uses ~SPC m~ for mode-specific commands
+** [ ] Elpaca adjacent packages
+** [ ] Consult (telescope-like fuzzy finding)
+   - nvim: telescope for files, grep, buffers, marks, help
+   - doom: ivy/counsel
+** [ ] Embark (context actions)
+   - pairs with consult for telescope-like workflow
+
+* UI/UX [0/10]
+** [ ] Mode line (doom-modeline or custom)
+   - nvim: lualine with git, diagnostics, LSP info, encoding, datetime
+   - doom: doom-modeline with similar features
+** [ ] Indentation guides
+   - nvim: hlchunk with treesitter-based highlighting
+   - doom: indent-guides module
+** [ ] Rainbow delimiters
+   - nvim: rainbow-delimiters.nvim
+   - doom: rainbow-mode for colors, but not delimiters
+** [ ] Color highlighter (rainbow-mode)
+   - nvim: nvim-colorizer for hex/rgb/hsl colors
+   - doom: rainbow-mode
+** [ ] Ligatures support
+   - doom: ligatures module with +extra +hasklig
+** [ ] Zen/focus mode
+   - doom: zen module
+   - writeroom-mode equivalent
+** [ ] Window zoom
+   - nvim: NeoZoom.lua (~<leader>z~)
+   - doom: zoom-window
+** [ ] Visual fill column (centered text)
+   - doom: uses this for org-present and nov-mode
+** [ ] Highlight yanked region
+   - nvim: autocmd for TextYankPost with IncSearch highlight
+   - evil-goggles package does this
+** [ ] Incline-style floating filename headers
+   - nvim: incline.nvim shows filename in corner of each window
+
+* Spelling & Writing [0/5]
+** [ ] Spelling setup
+   - nvim: spell dictionary at ~/usr/share/dict/words~
+   - doom: spell-fu with aspell
+*** [ ] Dictionary
+*** [ ] Thesaurus
+** [ ] Write good mode
+   - doom: writegood-mode (passive voice, weasel words)
+** [ ] Flycheck / Flymake syntax checking
+   - doom: syntax module with flycheck
+** [ ] Grammar checking
+   - doom: grammar module
+
+* LSP & Programming [0/12]
+** [ ] Eglot or lsp-mode setup
+   - nvim: mason + nvim-lspconfig for elixir, go, lua, graphql, ts, json, yaml
+   - doom: lsp-mode with lsp-ui
+** [ ] LSP UI features
+   - nvim: hover, signature help, inlay hints
+   - doom: lsp-ui-peek, lsp-ui-sideline, lsp-ui-doc
+*** [ ] Breadcrumbs header
+*** [ ] Sideline diagnostics
+*** [ ] Peek definitions/references
+*** [ ] Inlay hints toggle
+** [ ] Format on save
+   - nvim: autocmd BufWritePre with lsp format (toggleable per buffer)
+   - doom: format module with +onsave
+** [ ] LSP keymaps
+   - nvim: ~<leader>c~ prefix for code actions, format, definition, references, rename, hover
+   - doom: ~SPC c~ and ~SPC l~ prefixes
+** [ ] Diagnostics panel (trouble.nvim equivalent)
+   - nvim: trouble.nvim for diagnostics, symbols, quickfix
+   - doom: lsp-treemacs-errors-list
+** [ ] DAP debugging
+   - nvim: nvim-dap-ui
+   - doom: debugger module
+** [ ] Snippets (yasnippet)
+   - nvim: LuaSnip + friendly-snippets
+   - doom: snippets module
+** [ ] EditorConfig support
+   - doom: editorconfig module
+** [ ] Language-specific setups
+*** [ ] Go (gopls)
+*** [ ] Python (pyright)
+*** [ ] TypeScript/JavaScript
+*** [ ] Lua
+*** [ ] Elixir
+*** [ ] JSON/YAML with SchemaStore
+** [ ] Tree-sitter folding customizations
+   - doom has extensive ts-fold configurations per language
+
+* Git Integration [0/5]
+** [ ] Git gutter/signs
+   - nvim: gitsigns.nvim with inline blame
+   - doom: vc-gutter module
+** [ ] Inline git blame toggle
+   - nvim: gitsigns toggle_current_line_blame
+   - doom: blamer-mode
+** [ ] Git messenger (view commit at point)
+   - nvim: git-messenger.vim
+   - doom: similar via magit
+** [ ] Forge (GitHub/GitLab integration)
+   - doom: forge for PRs, issues
+** [ ] Diffview
+   - nvim: diffview.nvim with neogit
+
+* Org Mode [0/8]
+** [ ] Basic org-mode configuration
+   - doom: extensive org setup
+** [ ] Org-roam (zettelkasten notes)
+   - doom: org +roam2
+** [ ] Org-journal
+   - doom: org +journal
+** [ ] Org-pomodoro
+   - doom: org +pomodoro
+** [ ] Org capture templates
+   - doom: loads from ~/org/capture-templates
+** [ ] Org agenda
+   - doom: configured with work directories
+** [ ] Org-present (presentations)
+   - doom: org +present
+** [ ] Org timer/clock
+   - doom: has C-t prefix for all timer commands
+
+* Navigation & Bookmarks [0/4]
+** [ ] Better jumper (jump list)
+   - doom: better-jumper with ~SPC P~ for previous mark
+** [ ] Bookmarks / Harpoon equivalent
+   - nvim: arrow.nvim + harpoon for quick file switching
+   - emacs: built-in bookmarks, could use burly
+** [ ] Imenu improvements
+   - nvim: telescope treesitter symbols
+   - doom: ~M-i~ for imenu
+** [ ] Avy/easymotion (already have evil-easymotion)
+   - verify ~g s~ prefix works
+
+* AI Integration [0/1]
+** [ ] Claude Code / AI assistant integration
+   - nvim: claudecode.nvim with ~<leader>a~ prefix
+   - gptel or similar for emacs
+
+* Applications [0/4]
+** [ ] Deft (notational velocity)
+   - doom: deft module for quick notes
+** [ ] PDF tools
+   - doom: pdf module
+** [ ] EPUB reading (nov.el)
+   - doom: has nov-mode setup
+** [ ] Email (mu4e)
+   - doom: mu4e +gmail
 
 * Fixes [4/6]
-- [X] Fix evil leader key being overwritten by evil collection
-- [X] Highlight search results even after search is complete
-- [ ] Treat ~helpful~'s bufffers as special buffers so they stop opening over my own work
-- [ ] Find way to make key mappings only avaliable when minor mode is active but not visable when minor mode is turned off
-- [X] Corfu should show auto completion but should not auto select the completion candidates or eat up my RET input
-- [X] Magit new commit should start in insert mode but amend should start in normal mode
+** [X] Fix evil leader key being overwritten by evil collection
+** [X] Highlight search results even after search is complete
+** [ ] Treat ~helpful~'s buffers as special buffers so they stop opening over my own work
+** [ ] Find way to make key mappings only available when minor mode is active but not visible when minor mode is turned off
+** [X] Corfu should show auto completion but should not auto select the completion candidates or eat up my RET input
+** [X] Magit new commit should start in insert mode but amend should start in normal mode
+
+* Keybinding Parity [0/6]
+** [ ] Consistent ~<leader>f~ prefix for find/files
+   - nvim: ~<leader>ff~ files, ~<leader>fg~ grep, ~<leader>fb~ buffers
+** [ ] ~<leader>c~ prefix for code actions
+   - nvim: code action, format, definition, references, rename
+** [ ] ~<leader>g~ prefix for git (already started)
+   - add blame, diff, messenger
+** [ ] ~<leader>t~ prefix for toggles
+   - color column, indentation, format-on-save, inlay hints
+** [ ] ~<leader>x~ prefix for diagnostics/trouble
+** [ ] ~<leader>h~ prefix for help (already have)
+   - add colorscheme picker, filetype picker
+
+* Needs Deeper Consideration
+Features from doom/nvim that didn't work well or need rethinking.
+
+** [ ] Projectile
+   - Never worked reliably in doom
+   - Consider alternatives: project.el (built-in), projection.el
+   - Or just rely on consult + git for project navigation
+** [ ] Sessions / Workspaces
+   - persp-mode in doom was buggy
+   - Consider: desktop.el (built-in), burly.el, activities.el
+   - Maybe simpler bookmark-based workflow is enough?
 
 * References
 - https://github.com/progfolio/.emacs.d/blob/master/init.org
-- 
+- nvim config: ~/.config/nvim/
+- doom config: ~/.doom.d/ 
