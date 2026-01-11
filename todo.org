@@ -132,6 +132,8 @@
    - doom: org +present
 ** [ ] Org timer/clock
    - doom: has C-t prefix for all timer commands
+** [ ] Fancier icons
+** [ ] Org capture setup
 
 * Navigation & Bookmarks [0/4]
 ** [ ] Better jumper (jump list)

@@ -62,7 +62,7 @@
 		(global-corfu-minibuffer nil)
 		(corfu-popupinfo-delay 1.0)
 	:config
-		(defun corfu-insert-with-passthrough ()
+		(defun local/corfu-insert-with-passthrough ()
 			"Insert current candidate.
 Quit and pass the return through if no candidate is selected."
 			(interactive)
@@ -71,7 +71,7 @@ Quit and pass the return through if no candidate is selected."
 				(corfu-quit)
 				;; todo find way to pass the ret key onwards
 				(setq unread-command-events (listify-key-sequence (this-command-keys)))))
-		(define-key corfu-map (kbd "RET") (cons "insert" #'corfu-insert-with-passthrough)))
+		(define-key corfu-map (kbd "RET") (cons "insert" #'local/corfu-insert-with-passthrough)))
 
 ;; Use Dabbrev with Corfu! Dabbrev is emacs' built in completion API
 (use-package dabbrev

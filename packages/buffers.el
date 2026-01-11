@@ -1,9 +1,9 @@
 ;;; buffers.el --- Buffer management -*- lexical-binding: t; -*-
 
-(defun new-buffer ()
+(defun local/new-buffer ()
 	"Create a new buffer"
 	(interactive)
-		(let ((buffer (generate-new-buffer "*new*")))
+		(let ((buffer (generate-local/new-buffer "*new*")))
 			(set-buffer-major-mode buffer)
 			(set-window-buffer nil buffer)))
 
@@ -23,7 +23,7 @@
 	(define-key buffer-leader-keymap (kbd "k") (cons "kill buffer" #'kill-buffer))
 	(define-key buffer-leader-keymap (kbd "s") (cons "save buffer" #'save-buffer))
 	;; (define-key buffer-leader-keymap (kbd "S") (cons "save all buffers" #'save-buffer)) ; TODO
-	(define-key buffer-leader-keymap (kbd "N") (cons "new buffer" #'new-buffer))
+	(define-key buffer-leader-keymap (kbd "N") (cons "new buffer" #'local/new-buffer))
 
 	;; Bookmark bindings
 	(define-key buffer-leader-keymap (kbd "m") (cons "create bookmark" #'bookmark-set))
